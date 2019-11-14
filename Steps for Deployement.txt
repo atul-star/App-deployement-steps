@@ -1,0 +1,53 @@
+Steps for deployemet of Django app on pythonanywhere.com
+
+
+step 1) Push the code on git along with req.txt file 
+
+step 2) login into pythonanywhere.com account 
+
+step 3) after login open bash and clone the projcet from git
+
+step 4) in that bash create virtualenv 
+  1) virtualenv nameofenv -p python3.7
+  2) activate the env ---> source env/bin/activate
+  3) install the req.txt file ---> pip install -r  req.txt 
+ 
+step 5)Now goto database create new database and password 
+  1) goto mysql console and use that database
+ 
+step 6)now goto web and create(add new app) 
+     1)open wsgi server file(WSGI configuration file)
+	 2)comment all the lines except line no 76,77,81,82,83,85,88,89(uncomment these line only)
+	 3)on line no 81 i.e path(path = '/home/atul44/niksir')--->give the path of manage.py file from bash(use command on bash pwd)
+	 4)on line no 85 i.e os.environ['DJANGO_SETTINGS_MODULE'] = 'BOOKSTORE.settings' at uppercase BOOKSTORE give settings.py files path
+	 5)save the file 
+	 
+step7)Goto web in that set the virtualenv path as ---->/home/atul44/env
+	1) reload all the files
+	
+step 8)goto files in projcet folder goto appfolder in that settings.py 
+	1) in that line no 28 (ALLOWED_HOSTS = ['*'])
+	2) change the database settings like----->
+	DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'atul44$book',
+        'USER': 'atul44',
+        'PASSWORD': 'root@1234',
+        'HOST': 'atul44.mysql.pythonanywhere-services.com',
+        'PORT': '3306'
+			}
+		}
+	
+	3) save the file 
+
+step 9) goto bash 
+	1) in the bash goto projcet location i.e manage.py
+	2) give command ---> python manage.py migrate 
+	3) the give last command -->python manage.py runserver (with sepcify port if not working)
+
+step 10)
+		1) Access that domain over internet 
+
+	 
+
