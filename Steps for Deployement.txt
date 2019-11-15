@@ -49,5 +49,10 @@ step 9) goto bash
 step 10)
 		1) Access that domain over internet 
 
+
+Note importnant commnads on bash------->
+1)ls---> it shows list
+2)pwd--->is shows present working directory
+
 	 
 
